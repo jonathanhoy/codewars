@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script>
+    function duplicateEncode(word) {
+      const arrOfCharacters = word.toLowerCase().split('');
+      const obj = {};
+      for (let i = 0; i < arrOfCharacters.length; i++) {
+        if (obj[arrOfCharacters[i]]) {
+          obj[arrOfCharacters[i]]++;
+        } else {
+          obj[arrOfCharacters[i]] = 1;
+        }
+      }
+      for (let key in obj) {
+        if (obj[key] > 1) {
+          obj[key] = ")";
+        } else {
+          obj[key] = "(";
+        }
+      }
+      const newArr = arrOfCharacters.map((char) => {
+        return char = obj[char];
+      })
+      return newArr.join('');
+    }
+    
+    duplicateEncode("cattt");
+  </script>
+</body>
+</html>
